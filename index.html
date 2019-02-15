@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>City of Kitchener - Time Entry Self-Serve Tool Information Package</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+			function showSection(id){
+				$('#signin').hide();
+				$('#signup').hide();
+				$('#reset').hide();
+				$('#timeentry').hide();
+				$('#timeapproval').hide();
+				$('#reporting').hide();
+				$('#cityworks').hide();
+				$('#'+id).show();
+			}
+		</script>
+		<style>
+			 .timeentry {
+			 	border: 1px solid #ced4da;
+			 	padding: 5px;
+			 	margin: 5px;
+			 }
+			 body{
+			 	color: #0f4b26;
+			 	font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+			    font-weight: 500;
+			    line-height: 1.5;
+			    font-size: 1.063rem;
+			 }
+			 a {
+			 	color: #0f4b26;
+			 }
+		</style>
+	</head>
+	<body>
+		<div>
+			<div>City of Kitchener - Time Entry Self-Serve Information Package</div>
+			<div>Contact: Chris Carr - ccarrster@gmail.com - 519 954 6062</div>
+		</div>
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#" onclick="showSection('signin');">Sign In</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#" onclick="showSection('signup');">Register</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#" onclick="showSection('reset');">Forgot Password</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#" onclick="showSection('timeentry');">Time Entry</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#" onclick="showSection('timeapproval');">Time Approval</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#" onclick="showSection('reporting');">Time Reporting</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#" onclick="showSection('cityworks');">Cityworks Integration</a>
+		  </li>
+		</ul>
+		<div>
+			<div id="signin" class="col-4">
+				<div>Sign In</div>
+				<form>
+					<div class="form-group">
+						<label for='signinusername'>Username</label>
+						<input class="form-control" type='text' id='signinusername'>
+					</div>
+					<div class="form-group">
+						<label for='signinpassword'>Password</label>
+						<input class="form-control" type='password' id='signinpassword'>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div id="signup" style="display:none;" class="col-4">
+				<div>Register</div>
+				<form>
+					<div class="form-group">
+						<label for='signupusername'>Username</label>
+						<input class="form-control" type='text' id='signupusername'>
+					</div>
+					<div class="form-group">
+						<label for='signupemail'>Email</label>
+						<input class="form-control" type='text' id='signupemail'>
+					</div>
+					<div class="form-group">
+						<label for='signuppassword'>Password</label>
+						<input class="form-control" type='password' id='signuppassword'>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div id="reset" style="display:none;" class="col-4">
+				<div>Password Reset</div>
+				<form>
+					<div class="form-group">
+						<label for='resetemail'>Email</label>
+						<input class="form-control" type='text' id='resetemail'>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+		 
+		<div id="timeentry" style="display:none;" class="col-6">
+			<div>
+				<form>
+					<div class="form-group">
+						<label for='entryworker'>Indvidual or Crew/Group Work</label>
+						<select id='entryworker' class="form-control">
+							<option>Self</option>
+							<option>Crew A</option>
+							<option>Crew B</option>
+							<option>Group A</option>
+							<option>Group B</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for='entrystart'>Start Time</label>
+						<input type="datetime-local" id='entrystart' class="form-control">
+					</div>
+					<div class="form-group">
+						<label for='entryend'>End Time</label>
+						<input type="datetime-local" id='entryend' class="form-control">
+					</div>
+					<div class="form-group">
+						<label for='entryactivity'>Work Activity</label>
+						<select id='entryactivity' class="form-control">
+							<option>Work Activity A</option>
+							<option>Work Activity B</option>
+							<option>Work Activity C</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for='entrynotes'>Notes</label>
+						<textarea id='entrynotes' class="form-control"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div>Time Entered
+				<div class="timeentry">
+					<div>Workers: Chris Self</div>
+					<div>Start Date/Time: Feb 14 2019 9:45 AM</div>
+					<div>Start Date/Time: Feb 14 2019 12:45 PM</div>
+					<div>Work Activity: Work Activity C</div>
+					<div>Notes: Created Demo</div>
+					<div>Approval: Pending</div>
+				</div>
+				<div class="timeentry">
+					<a href="">Edit</a>
+					<div>Workers: Crew B</div>
+					<div>Start Date/Time: Feb 13 2019 10:45 AM</div>
+					<div>Start Date/Time: Feb 13 2019 5:45 PM</div>
+					<div>Work Activity: Work Activity A</div>
+					<div>Notes: Repair</div>
+					<div>Approval: Change Requested</div>
+					<div>Exception Notes: Work activity incorrect</div>
+				</div>
+				<div class="timeentry">
+					<div>Workers: Crew B</div>
+					<div>Start Date/Time: Feb 12 2019 10:37 AM</div>
+					<div>Start Date/Time: Feb 12 2019 5:27 PM</div>
+					<div>Work Activity: Work Activity B</div>
+					<div>Notes: Painting</div>
+					<div>Approval: Approved</div>
+				</div>
+				<div>
+					<a href="">Show Previous Time Entries</a>
+				</div>
+			</div>
+		</div>
+		<div id="timeapproval" style="display:none;" class="col-6">
+			Time Approval
+			<div class="timeentry">
+				<div>Summary</div>
+				<div>Pending Changes 1</div>
+				<div>Pending Approval 1</div>
+				<div>Approved This Week 37</div>
+			</div>
+			<div class="timeentry">
+				<form>
+					<div class="form-group">
+						<label for='approval1'>Approval</label>
+						<select id='approval1' class="form-control">
+							<option selected="selected">Pending</option>
+							<option>Approved</option>
+							<option>Change Requested</option>
+							<option>Rejected</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+				<div>Workers: Chris Self</div>
+				<div>Start Date/Time: Feb 14 2019 9:45 AM</div>
+				<div>Start Date/Time: Feb 14 2019 12:45 PM</div>
+				<div>Work Activity: Work Activity C</div>
+				<div>Notes: Created Demo</div>
+			</div>
+			<div class="timeentry">
+				<form>
+					<div class="form-group">
+						<label for='approval2'>Approval</label>
+						<select id='approval2' class="form-control">
+							<option>Pending</option>
+							<option>Approved</option>
+							<option selected="selected">Change Requested</option>
+							<option>Rejected</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+				<div>Workers: Crew B</div>
+				<div>Start Date/Time: Feb 13 2019 10:45 AM</div>
+				<div>Start Date/Time: Feb 13 2019 5:45 PM</div>
+				<div>Work Activity: Work Activity A</div>
+				<div>Notes: Repair</div>
+				<div>Approval: Change Requested</div>
+			</div>
+			<div class="timeentry">
+				<div>Approval: Approved</div>
+				<div>Uploaded to Cityworks: Feb 13 2019 1:37 PM</div>
+				<div>Workers: Crew B</div>
+				<div>Start Date/Time: Feb 12 2019 10:37 AM</div>
+				<div>Start Date/Time: Feb 12 2019 5:27 PM</div>
+				<div>Work Activity: Work Activity B</div>
+				<div>Notes: Painting</div>
+			</div>
+		</div>
+		<div id="reporting" style="display:none;" class="col-6">
+			<div>Reporting</div>
+			<form>
+				<div class="form-group">
+					<label for='reportworker'>Worker Filter</label>				
+					<select id='reportworker' class="form-control">
+						<option>Chris Self</option>
+						<option>Jim Test</option>
+						<option>Crew A</option>
+						<option>Crew B</option>
+						<option>Group A</option>
+						<option>Group B</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for='reportactvity'>Work Activity Filter</label>				
+					<select id='reportactvity' class="form-control">
+						<option>Work Activity A</option>
+						<option>Work Activity B</option>
+						<option>Work Activity C</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for='reportstart'>Start Time</label>				
+					<input type="datetime-local" id='reportstart' class="form-control">
+				</div>
+				<div class="form-group">
+					<label for='reportend'>End Time</label>				
+					<input type="datetime-local" id='reportend' class="form-control">
+				</div>
+				<div><a href="Download CSV">Download CSV</a></div>
+				<div><a href="Download Excel">Download Excel</a></div>
+				<div><a href="Download PDF">Download PDF</a></div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<div><img src="sac5a40751986fi000300001344c020.png"></div>
+		</div>
+		<div id="cityworks" style="display:none;" class="col-6">
+			<div>Cityworks API/Documentation does not appear to be publicly available. There are a few example integrations in github that I found. It appears that some of the requests are available via http GET requests providing JSON in the data parameter.</div>
+			<div>It looks like Cityworks also offers and SDK which can make integration faster with already writen code.</div>
+			<div>I found referance to a course, and it looks like the City of Kitchener would already have access to the API via it's existing licence. <a href='https://www.cityworks.com/2015/10/new-course-cityworks-2015-apis-programming/'>https://www.cityworks.com/2015/10/new-course-cityworks-2015-apis-programming/</a></div>
+		</div>
+	</body>
+</html>
